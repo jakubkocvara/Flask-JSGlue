@@ -1,7 +1,7 @@
 from flask import render_template
 from flask import make_response
 from flask import url_for
-from jinja2 import Markup
+rom jinja2.utils import markupsafe
 import re
 import json
 
@@ -59,4 +59,4 @@ class JSGlue(object):
     @staticmethod
     def include():
         js_path = url_for('serve_js')
-        return Markup('<script src="%s" type="text/javascript"></script>') % (js_path,)
+        return markupsafe.Markup('<script src="%s" type="text/javascript"></script>') % (js_path,)
